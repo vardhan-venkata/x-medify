@@ -12,27 +12,33 @@ const Dropdown = () => {
   const [city, setCity] = useState("");
   const [stateDropdownOpen, setStateDropdownOpen] = useState(false);
   const [cityDropdownOpen, setCityDropdownOpen] = useState(false);
-  
+
   const stateDropdownRef = useRef(null);
   const cityDropdownRef = useRef(null);
-  
+
   const theme = useTheme();
   const navigate = useNavigate();
 
   // Click outside handler
   useEffect(() => {
     function handleClickOutside(event) {
-      if (stateDropdownRef.current && !stateDropdownRef.current.contains(event.target)) {
+      if (
+        stateDropdownRef.current &&
+        !stateDropdownRef.current.contains(event.target)
+      ) {
         setStateDropdownOpen(false);
       }
-      if (cityDropdownRef.current && !cityDropdownRef.current.contains(event.target)) {
+      if (
+        cityDropdownRef.current &&
+        !cityDropdownRef.current.contains(event.target)
+      ) {
         setCityDropdownOpen(false);
       }
     }
-    
-    document.addEventListener('mousedown', handleClickOutside);
+
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -115,9 +121,9 @@ const Dropdown = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (!state || !city) return;
-    
+
     navigate({
-      pathname: '/search',
+      pathname: "/search",
       search: `?state=${state}&city=${city}`,
     });
   };
@@ -127,8 +133,8 @@ const Dropdown = () => {
       <div className="dropdown-container">
         <form onSubmit={handleFormSubmit} className="form">
           <div id="state" ref={stateDropdownRef} className="custom-dropdown">
-            <div 
-              className="dropdown-header" 
+            <div
+              className="dropdown-header"
               onClick={() => setStateDropdownOpen(!stateDropdownOpen)}
             >
               {state || "State"}
@@ -136,8 +142,8 @@ const Dropdown = () => {
             {stateDropdownOpen && (
               <ul className="dropdown-list">
                 {stateList.map((option) => (
-                  <li 
-                    key={option.value} 
+                  <li
+                    key={option.value}
                     onClick={() => handleStateSelect(option.value)}
                   >
                     {option.label}
@@ -148,8 +154,8 @@ const Dropdown = () => {
           </div>
 
           <div id="city" ref={cityDropdownRef} className="custom-dropdown">
-            <div 
-              className="dropdown-header" 
+            <div
+              className="dropdown-header"
               onClick={() => state && setCityDropdownOpen(!cityDropdownOpen)}
               style={{ opacity: state ? 1 : 0.5 }}
             >
@@ -158,8 +164,8 @@ const Dropdown = () => {
             {cityDropdownOpen && state && (
               <ul className="dropdown-list">
                 {cityList.map((option) => (
-                  <li 
-                    key={option.value} 
+                  <li
+                    key={option.value}
                     onClick={() => handleCitySelect(option.value)}
                   >
                     {option.label}
@@ -171,6 +177,7 @@ const Dropdown = () => {
 
           <button
             type="submit"
+            id={"searchBtn"}
             className="dropdown-button"
             style={{ backgroundColor: theme.palette.primary.main }}
             disabled={!state || !city}
