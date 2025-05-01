@@ -1,0 +1,73 @@
+/* Container remains centered */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Card with fixed width for larger screens and grid layout */
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;  /* vertically center all columns */
+    width: 600px;         /* fixed width for larger screens */
+    max-width: 100%;      /* responsive on smaller screens */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 20px;
+    margin: 20px;
+  }
+  
+  /* First column: Image Section */
+  .image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-section img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  /* Second column: Hospital Information */
+  .hospital-info {
+    text-align: center;
+  }
+  
+  /* Ensure long hospital names wrap nicely */
+  .hospital-name {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+  }
+  
+  /* Third column: Button Section */
+  .button-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align button at the bottom */
+    align-items: center;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+    .card {
+      grid-template-columns: 1fr;      /* Stack columns vertically */
+      grid-template-rows: auto auto auto;
+    }
+    .image-section,
+    .hospital-info,
+    .button-section {
+      margin-bottom: 10px;
+    }
+    .button-section {
+      justify-content: center;
+    }
+  }
+  

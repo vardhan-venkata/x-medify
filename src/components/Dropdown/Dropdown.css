@@ -1,0 +1,116 @@
+.dropdown{
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    width: 75vw;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dropdown-button{
+    border: 0;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+  }
+  
+  .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .select{
+    width: 250px;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .custom-dropdown {
+    position: relative;
+    width: 200px;
+    margin: 0 10px;
+  }
+  
+  .dropdown-header {
+    padding: 10px 15px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dropdown-header::after {
+    content: '▼';
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  
+  .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  
+  .dropdown-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .dropdown-list li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
+    .custom-dropdown {
+      width: 100%;
+      margin: 10px 0;
+    }
+    
+    .form {
+      flex-direction: column;
+    }
+    
+    .dropdown-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
